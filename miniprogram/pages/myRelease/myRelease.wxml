@@ -1,0 +1,29 @@
+<view>
+	<view   class="sell-book" wx:for="{{selBookList}}" wx:key="index">
+		<view bindtap="showQrcode" data-url="{{item._fileIds[0]}}" class="sell-book-img">
+			<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
+
+		</view>
+		<navigator hover-class="none" url="/pages/myReleaseDetail/myReleaseDetail?id={{item._id}}" class="sell-book-content ">
+			<view>
+				书名：{{item._bookName}}
+			</view>
+			<view>
+				作者/主编：{{item._author}}
+			</view>
+			<view class="sell-book-content-price">
+				￥{{item._price}}
+			</view>
+			<view class=" text-grey" wx:if="{{item._isSell == 0}}">
+				状态：下架
+			</view>
+			<view class=" text-green" wx:if="{{item._isSell == 1}}">
+				状态：出售中
+			</view>
+			<view class="text-blue" wx:if="{{item._isSell == 2}}">
+				状态：已出售
+			</view>
+		</navigator>
+	</view>
+
+</view>

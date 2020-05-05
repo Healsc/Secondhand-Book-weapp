@@ -1,0 +1,119 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"nodeModules": true
+	},
+	"appid": "wxd6b8ace1aef47d07",
+	"projectname": "secondhandBook",
+	"libVersion": "2.8.1",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": -1,
+					"name": "db guide",
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "发布",
+					"pathName": "pages/release/release",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布",
+					"pathName": "pages/release/release",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "卖书",
+					"pathName": "pages/sellBook/sellBook",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/profile/profile",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的发布",
+					"pathName": "pages/myRelease/myRelease",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "pages/myReleaseDetail/myReleaseDetail",
+					"pathName": "pages/myReleaseDetail/myReleaseDetail",
+					"query": "id=名字书49",
+					"scene": null
+				},
+				{
+					"id": 7,
+					"name": "pages/myReleaseDetail/myReleaseDetail",
+					"pathName": "pages/myReleaseDetail/myReleaseDetail",
+					"query": "id=孙同学的大学英语B3347998",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "pages/releaseDetail/releaseDetail",
+					"pathName": "pages/releaseDetail/releaseDetail",
+					"query": "id=于同学的语文书语文教材315714",
+					"scene": null
+				}
+			]
+		}
+	}
+}

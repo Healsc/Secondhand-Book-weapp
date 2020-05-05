@@ -1,0 +1,57 @@
+<view>
+
+	<view class="cu-form-group margin-top">
+		<view class="title guding">书名</view>
+		<text class='text-center pad-left-cont'>{{detail._bookName}}</text>
+	</view>
+	<view class="cu-form-group">
+		<view class="title guding">作者/主编</view>
+		<text class='text-center pad-left-cont'>{{detail._author}}</text>
+	</view>
+	<view class="cu-form-group ">
+		<view class="title guding">出版社</view>
+		<text class='text-center pad-left-cont'>{{detail._press}}</text>
+	</view>
+	<view class="cu-form-group">
+		<view class="title guding">价格</view>
+		<text class='text-center pad-left-cont'>{{detail._price}}</text>
+	</view>
+	<view wx:if="{{detail._notes!=''}}" class="cu-form-group ">
+		<view class="title guding">备注</view>
+		<text class='text-center pad-left-cont'>备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注{{detail._notes}}</text>
+	</view>
+
+	<view class="cu-form-group">
+		<view class="title guding">联系人</view>
+		<text class='text-center pad-left-cont'>{{detail._postName}}</text>
+	</view>
+	<view class="cu-form-group ">
+		<view class="title guding">联系方式</view>
+		<text bindtap="copy" data-tel="{{detail._tel}}" class='text-center pad-left-cont'>{{detail._tel}}</text>
+	</view>
+	<view class="cu-form-group ">
+		<view class="title guding">发布时间</view>
+		<text class='text-center pad-left-cont'>{{detail._time}}</text>
+	</view>
+	<view class="cu-form-group ">
+		<view class="title guding">当前状态</view>
+		<text wx:if="{{detail._isSell == 0}}" class='text-center text-grey pad-left-cont'>下架</text>
+		<text wx:if="{{detail._isSell == 1}}" class='text-center text-green pad-left-cont'>出售中</text>
+		<text wx:if="{{detail._isSell == 2}}" class='text-center text-blue pad-left-cont'>已出售</text>
+	</view>
+</view>
+<view class="img">
+	<view class="img-item" wx:for="{{detail._fileIds}}" wx:key="index" bindtap="showQrcode" data-url="{{item}}">
+		<image src="{{item}}" data-url="{{item}}"></image>
+	</view>
+</view>
+<view class="cu-list grid col-1 margin-bottom">
+	<view wx:if="{{!isShowCollect}}" bindtap="goCollect" class="cu-item">
+		<text  class="cuIcon-like lg text-gray"></text>
+		<text>收藏</text>
+	</view>
+	<view wx:if="{{isShowCollect}}" bindtap="failCollect" class="cu-item">
+		<text  class="cuIcon-likefill lg text-red"></text>
+		<text>取消收藏</text>
+	</view>
+</view>

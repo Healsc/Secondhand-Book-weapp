@@ -1,0 +1,57 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+	<view class="cu-form-group margin-top ">
+		<view class="title">书名</view>
+		<input type='text' name="bookName" placeholder="请填写" ></input>
+	</view>
+	<view class="cu-form-group ">
+		<view class="title">出版社</view>
+		<input type="numtextber" name="press" placeholder="请填写"></input>
+	</view>
+
+	<view class="cu-form-group">
+		<view class="title">作者</view>
+		<input type="text" name="author" placeholder="书籍的作者/主编" ></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">售价</view>
+		<input type="number" name="price" placeholder="请填写"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">名字</view>
+		<input type="" name="postName" placeholder="您的名字" ></input>
+	</view>
+	<view class="cu-form-group ">
+		<view class="title">联系方式</view>
+		<input type="text" name="tel" placeholder="请留下qq/微信/手机号" ></input>
+	</view>
+	<view class="cu-form-group ">
+		<view class="title">备注</view>
+		<textarea bindblur="bindTextAreaBlur" name="notes" auto-height placeholder="备注信息" ></textarea>
+	</view>
+
+	<view class="cu-bar bg-white margin-top pl-img">
+		<view class="action">
+			书籍图片上传(至少一张)
+		</view>
+		<view class="action">
+			{{imgList.length}}/6
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="padding-xs bg-img" style="background-image:url({{imgList[index]}})" wx:for="{{imgList}}" wx:key="index" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="index">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="padding-xs solids" bindtap="ChooseImage" wx:if="{{imgList.length<2}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+
+
+	<view class="padding flex flex-direction bg-white margin-top">
+		<button form-type="submit" class="cu-btn bg-green margin-tb-sm lg">确认发布</button>
+	</view>
+</form>

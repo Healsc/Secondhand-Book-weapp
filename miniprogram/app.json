@@ -1,0 +1,44 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/deal/deal",
+        "pages/release/release",
+        "pages/sellBook/sellBook",
+        "pages/myRelease/myRelease",
+        "pages/myReleaseDetail/myReleaseDetail",
+        "pages/releaseDetail/releaseDetail",
+        "pages/myCollect/myCollect",
+
+
+        "pages/profile/profile"
+        
+    ],
+    "window": {
+        "backgroundColor": "#F6F6F6",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#F6F6F6",
+        "navigationBarTitleText": "Secondhand Book",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+      "list": [{
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "../miniprogram/images/icon/home.png",
+        "selectedIconPath": "../miniprogram/images/icon/home-sel.png"
+      },
+      {
+        "pagePath": "pages/sellBook/sellBook",
+        "text": "发布",
+        "iconPath": "../miniprogram/images/icon/wode.png",
+        "selectedIconPath": "../miniprogram/images/icon/wode.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "../miniprogram/images/icon/wode.png",
+        "selectedIconPath": "../miniprogram/images/icon/wode-sel.png"
+      }]
+    },
+    "sitemapLocation": "sitemap.json"
+}
