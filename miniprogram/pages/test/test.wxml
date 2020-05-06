@@ -32,7 +32,7 @@
 					<text class='cuIcon-title text-green'></text>通用</view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{tongyongList}}" wx:key="index">
+				<view  class="cu-item " wx:for="{{tongyongList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -87,7 +87,7 @@
 					<text class='cuIcon-title text-green'></text> 园艺 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{yuanyiList}}" wx:key="index">
+				<view  class="cu-item " wx:for="{{yuanyiList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -176,7 +176,7 @@
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
-					<navigator url="/pages/releaseDetail/releaseDetail?id={{item._id}}" hover-class="none" class="content">
+					<navigator  url="/pages/releaseDetail/releaseDetail?id={{item._id}}" hover-class="none" class="content">
 						<view class="text-pink">
 							<text class="text-cut">{{item._bookName}}</text>
 						</view>
@@ -203,7 +203,7 @@
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
-					<navigator url="/pages/releaseDetail/releaseDetail?id={{item._id}}" hover-class="none" class="content">
+					<navigator  url="/pages/releaseDetail/releaseDetail?id={{item._id}}" hover-class="none" class="content">
 						<view class="text-pink">
 							<text class="text-cut">{{item._bookName}}</text>
 						</view>
@@ -227,7 +227,7 @@
 					<text class='cuIcon-title text-green'></text> 经管 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{jingguanList}}" wx:key="index">
+				<view  class="cu-item " wx:for="{{jingguanList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -254,7 +254,7 @@
 					<text class='cuIcon-title text-green'></text> 生命 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{shengmingList}}" wx:key="index">
+				<view  class="cu-item " wx:for="{{shengmingList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -281,7 +281,7 @@
 					<text class='cuIcon-title text-green'></text> 食品 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{shipinList}}" wx:key="index">
+				<view  class="cu-item " wx:for="{{shipinList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -308,7 +308,7 @@
 					<text class='cuIcon-title text-green'></text> 管法 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{guanfaList}}" wx:key="index">
+				<view  class="cu-item " wx:for="{{guanfaList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -336,7 +336,7 @@
 					<text class='cuIcon-title text-green'></text> 水利 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{shuiliList}}" wx:key="index">
+				<view  class="cu-item " wx:for="{{shuiliList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -367,7 +367,7 @@
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
-					<navigator url="/pages/releaseDetail/releaseDetail?id={{item._id}}" hover-class="none" class="content">
+					<navigator url="/pages/releaseDetail/releaseDetail?id={{item._id}}"  hover-class="none" class="content">
 						<view class="text-pink">
 							<text class="text-cut">{{item._bookName}}</text>
 						</view>
@@ -391,7 +391,7 @@
 					<text class='cuIcon-title text-green'></text> 艺术 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{yishuList}}" wx:key="index">
+				<view  class="cu-item " wx:for="{{yishuList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -412,13 +412,13 @@
 		</view>
 
 
-		<view class="padding-top padding-lr" id="main-14">
+    <view class="padding-top padding-lr" id="main-14">
 			<view class='cu-bar solid-bottom bg-white'>
 				<view class='action'>
 					<text class='cuIcon-title text-green'></text> 电信 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{dianxinList}}" wx:key="index">
+				<view  class="cu-item " wx:for="{{dianxinList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -438,13 +438,13 @@
 			</view>
 		</view>
 
-		<view class="padding-top padding-lr" id="main-15">
+    <view class="padding-top padding-lr" id="main-15">
 			<view class='cu-bar solid-bottom bg-white'>
 				<view class='action'>
 					<text class='cuIcon-title text-green'></text> 文理 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{wenliList}}" wx:key="index">
+				<view  class="cu-item " wx:for="{{wenliList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -465,13 +465,13 @@
 		</view>
 
 
-		<view class="padding-top padding-lr" id="main-16">
+    <view class="padding-top padding-lr" id="main-16">
 			<view class='cu-bar solid-bottom bg-white'>
 				<view class='action'>
 					<text class='cuIcon-title text-green'></text> 其他 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{qitaList}}" wx:key="index">
+				<view  class="cu-item " wx:for="{{qitaList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -490,7 +490,7 @@
 				</view>
 			</view>
 		</view>
-
+	
 
 	</scroll-view>
 </view>

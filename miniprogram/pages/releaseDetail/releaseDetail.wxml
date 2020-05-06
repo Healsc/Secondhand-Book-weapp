@@ -14,7 +14,8 @@
 	</view>
 	<view class="cu-form-group">
 		<view class="title guding">价格</view>
-		<text class='text-center pad-left-cont'>{{detail._price}}</text>
+
+		<text class='text-center text-red pad-left-cont'>￥{{detail._price}}</text>
 	</view>
 	<view wx:if="{{detail._notes!=''}}" class="cu-form-group ">
 		<view class="title guding">备注</view>
@@ -45,7 +46,7 @@
 		<image src="{{item}}" data-url="{{item}}"></image>
 	</view>
 </view>
-<view class="cu-list grid col-1 margin-bottom">
+<view wx:if="{{!isMycollect}}" class="cu-list grid col-1 margin-bottom">
 	<view wx:if="{{!isShowCollect}}" bindtap="goCollect" class="cu-item">
 		<text  class="cuIcon-like lg text-gray"></text>
 		<text>收藏</text>

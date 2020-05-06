@@ -64,20 +64,14 @@ Page({
         qitaList: []
     },
     onLoad() {
-        setTimeout(() => {
-            wx.stopPullDownRefresh({
-                complete: (res) => {},
-            })
-            wx.hideLoading({
-              complete: (res) => {},
-            })
-        }, 1500)
         wx.showLoading({
             title: '加载中...',
             mask: true
         });
         let list = this.data.list;
         for (let i = 0; i < 17; i++) {
+
+
             list[i].id = i;
         }
         this.setData({
@@ -354,16 +348,6 @@ Page({
                 })
                 return false
             }
-        }
-    },
-    onPullDownRefresh: function () {
-        let that = this;
-        this.onLoad();
-    },
-    onShareAppMessage: function () {
-        return {
-            title: 'Secondhand Book',
-            path: "/pages/index/index"
         }
     }
 })

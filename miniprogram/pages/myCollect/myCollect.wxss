@@ -1,1 +1,46 @@
-/* pages/myCollect/myCollect.wxss */
+/* pages/myRelease/myRelease.wxss */
+.sell-book {
+    display: flex;
+    padding: 20rpx 40rpx;
+    border-bottom: 1px solid #ddd;
+    background-color: #ffffff;
+}
+
+.sell-book-img {
+    flex: 1;
+    height: 200rpx;
+
+}
+
+.sell-book-img image {
+    width: 100%;
+    height: 100%;
+}
+
+.sell-book-content {
+    padding: 20rpx 40rpx;
+    display: flex;
+    flex: 3;
+    align-items: center;
+
+    flex-direction: column;
+
+}
+
+.sell-book-content view {
+    flex: 1;
+}
+
+.sell-book-content .sell-book-content-price {
+    color: #E61414;
+}
+
+.jieudan {
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}

@@ -10,7 +10,8 @@ Page({
         detail: {},
         openid: '',
         isShowCollect: false,
-        collectId:''
+        isMycollect: false,
+        collectId: ''
     },
 
     /**
@@ -24,14 +25,21 @@ Page({
         this.setData({
             id: options.id
         })
-        db.collection('sellBook').doc(options.id).get().then(res => {
-            wx.hideLoading({
-                complete: (res) => {},
-            })
-            this.setData({
-                detail: res.data
-            })
-        })
+        /*  db.collection('sellBook').doc(options.id).get().then(res => {
+             wx.hideLoading({
+                 complete: (res) => {},
+             })
+             console.log(res.data._openid == this.data.openid)
+             console.log(this.data.openid)
+             if (res.data._openid == this.data.openid) {
+                 this.setData({
+                     isMycollect: true
+                 })
+             }
+             this.setData({
+                 detail: res.data
+             })
+         }) */
     },
     getOpenid() {
         wx.cloud.callFunction({
@@ -40,6 +48,7 @@ Page({
             this.setData({
                 openid: res.result.openid
             })
+            this.getDetail();
             this.getCollect();
         })
     },
@@ -55,9 +64,17 @@ Page({
             title: '加载中',
         })
         db.collection('sellBook').doc(this.data.id).get().then(res => {
+
             wx.hideLoading({
                 complete: (res) => {},
             })
+            console.log(res.data._openid == this.data.openid)
+            console.log(this.data.openid)
+            if (res.data._openid == this.data.openid) {
+                this.setData({
+                    isMycollect: true
+                })
+            }
             this.setData({
                 detail: res.data
             })
@@ -79,26 +96,26 @@ Page({
             this.getCollect();
         })
     },
-    failCollect(){
-        db.collection('collect').doc(this.data.collectId).remove().then(res=>{
-            console.log(res)
+    failCollect() {
+        db.collection('collect').doc(this.data.collectId).remove().then(res => {
+
             this.getCollect();
         })
     },
     getCollect() {
         db.collection('collect').where({
             _openid: this.data.openid,
-            _bookId:this.data.id
+            _bookId: this.data.id
         }).get().then(res => {
-            console.log(res.data)
+
             if (res.data.length) {
                 this.setData({
-                    collectId:res.data[0]._id,
+                    collectId: res.data[0]._id,
                     isShowCollect: true
                 })
-            }else{
+            } else {
                 this.setData({
-                    isShowCollect:false
+                    isShowCollect: false
                 })
             }
         })

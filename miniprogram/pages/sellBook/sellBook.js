@@ -1,20 +1,51 @@
 const app = getApp();
 
+/* '通用',
+            '01农学', '02园艺', '03资环',
+            '05动科', '06动医', '07工程', '08经管', '09生命', '10食品',
+            '12管法', '13水利',
+            '15国际',
+            '18艺术', '19电信', '20文理',
+
+
+            '其他'
+ */
+
 Page({
     data: {
         imgList: [],
-        fileIds: []
+        fileIds: [],
+        bookInfo: {},
+        forminfo: "",
+        picker: [
+            '通用',
+            '农学', '园艺', '资环',
+            '动科', '动医', '工程', '经管', '生命', '食品',
+            '管法', '水利',
+            '国际',
+            '艺术', '电信', '文理',
+            '其他'
+        ],
+        index: null,
+        category: ""
     },
 
-
-    formSubmit(e) {
-        console.log(e)
+    PickerChange(e) {
         this.setData({
-            wumeiInfo: e.detail.value,
+            index: e.detail.value,
+            category: this.data.picker[e.detail.value]
+        })
+        console.log(this.data.category)
+    },
+    formSubmit(e) {
+        let that = this;
+        that.setData({
+            bookInfo: e.detail.value,
         })
         if (e.detail.value.bookName == "" || e.detail.value.press == "" ||
             e.detail.value.author == "" || e.detail.value.price == "" ||
-            e.detail.value.tel == "" || e.detail.value.postName == "" || this.data.imgList.length == 0) {
+            e.detail.value.tel == "" || e.detail.value.postName == "" ||
+            that.data.imgList.length == 0 || that.data.category == "") {
             wx.showModal({
                 title: '',
                 content: '信息不完整',
@@ -46,7 +77,7 @@ Page({
                                     success: res => {
                                         // 返回文件 ID
                                         this.setData({
-                                            fileIds: this.data.fileIds.concat(res.fileID)
+                                            fileIds: that.data.fileIds.concat(res.fileID)
                                         });
 
                                         resolve();
@@ -67,8 +98,8 @@ Page({
                             })
                             db.collection('sellBook').add({
                                 data: {
-                                    _id: e.detail.value.postName +"的"+ e.detail.value.bookName + Math.floor(Math.random() * 1000000),
-                                    _fileIds: this.data.fileIds,
+                                    _id: e.detail.value.postName + "的" + e.detail.value.bookName + Math.floor(Math.random() * 1000000),
+                                    _fileIds: that.data.fileIds,
                                     _bookName: e.detail.value.bookName,
                                     _press: e.detail.value.press,
                                     _author: e.detail.value.author,
@@ -76,17 +107,26 @@ Page({
                                     _tel: e.detail.value.tel,
                                     _postName: e.detail.value.postName,
                                     _notes: e.detail.value.notes,
-                                    _time: this.getDate(),
+                                    _time: that.getDate(),
                                     _createTime: new Date(),
+                                    _category: that.data.category,
                                     _isSell: 1,
                                     _isShow: 1
                                 }
                             }).then(res => {
+
                                 wx.hideLoading();
                                 wx.showToast({
                                     title: '发布成功',
                                     icon: 'success',
-                                    duration: 3000
+                                    duration: 1000
+                                })
+                                that.setData({
+                                    index: null,
+                                    bookInfo: '',
+                                    forminfo: '',
+                                    imgList: '',
+                                    fileIds: ''
                                 })
                             }).catch(err => {
                                 wx.showToast({

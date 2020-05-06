@@ -2,9 +2,9 @@
 .VerticalNav.nav {
     width: 200rpx;
     white-space: initial;
-}
-
-.VerticalNav.nav .cu-item {
+  }
+  
+  .VerticalNav.nav .cu-item {
     width: 100%;
     text-align: center;
     background-color: #fff;
@@ -12,13 +12,12 @@
     border: none;
     height: 50px;
     position: relative;
-}
-
-.VerticalNav.nav .cu-item.cur {
+  }
+  
+  .VerticalNav.nav .cu-item.cur {
     background-color: #f1f1f1;
-}
-
-.VerticalNav.nav .cu-item.cur::after {
+  }
+  .VerticalNav.nav .cu-item.cur::after {
     content: "";
     width: 8rpx;
     height: 30rpx;
@@ -29,17 +28,15 @@
     right: 0rpx;
     bottom: 0;
     margin: auto;
-}
-
-.VerticalBox {
+  }
+  .VerticalBox{
     display: flex;
-}
-
-.VerticalMain {
+  }
+  .VerticalMain{
     background-color: #f1f1f1;
-}
+  }
 
-image {
+  image{
     width: 100%;
     height: 100%;
-}
+  }
