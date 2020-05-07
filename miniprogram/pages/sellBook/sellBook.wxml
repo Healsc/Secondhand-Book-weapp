@@ -1,4 +1,19 @@
-<form bindsubmit="formSubmit" bindreset="formReset">
+<view wx:if="{{!isShowPage}}">
+
+	<view class='margin-xl bg-white padding-xl radius shadow-lg '>
+		<view class='text-center margin-bottom text-lg  text-grey'>Notice</view>
+		<view class='text-content'>
+
+			<view class='margin-top-sm'>Hi！欢迎使用Secondhand Book小程序</view>
+			<view class='margin-top-sm'>由于微信限制，个人开发的微信小程序不能发布信息！</view>
+			<view class='margin-top-sm'>暂时卖书信息由开发者进行添加。</view>
+			<view class='margin-top-sm'>请把书籍名称、出版社、作者/主编、价格、联系方式以及书籍照片发给开发者。</view>
+			<view class='margin-top-sm'>联系邮箱：SecondhandBook@yeah.net</view>
+			<view class='margin-top-sm'>联系微信：Sunshinecsc-33</view>
+		</view>
+	</view>
+</view>
+<form wx:if="{{isShowPage}}" bindsubmit="formSubmit" bindreset="formReset">
 	<view class="cu-form-group margin-top ">
 		<view class="title">书名</view>
 		<input type='text' value="{{forminfo}}" name="bookName" placeholder="请填写"></input>

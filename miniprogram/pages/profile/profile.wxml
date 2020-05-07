@@ -1,3 +1,12 @@
+<view class="top">
+	<image class="top-bc" src="{{urlBG._url}}"></image>
+	<view wx:if="{{isShowUserInfo}}" class="user">
+		<image class="user-img" src="{{userInfo.avatarUrl}}"></image>
+		<view class="user-name">{{userInfo.nickName}}</view>
+	</view>
+	<button class="show-user-btn" wx:if="{{isShowUserBtn}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">登录</button>
+</view>
+
 
 <view class="cu-list menu   margin-bottom-xl shadow-lg radius" style='margin-top:1rpx'>
 	<view class="cu-item arrow">
@@ -13,13 +22,19 @@
 		</button>
 	</view>
 	<view class="cu-item arrow">
-		<navigator url="/pages/myRelease/myRelease" class="content"  hover-class="none">
+		<button class="cu-btn content" bindtap="openSetting" hover-class="none">
+			<text class="cuIcon-settingsfill text-green"></text>
+			<text class="text-grey">系统设置</text>
+		</button>
+	</view>
+	<view class="cu-item arrow">
+		<navigator url="/pages/myRelease/myRelease" class="content" hover-class="none">
 			<text class="cuIcon-roundaddfill text-pink"></text>
 			<text class="text-grey">我的发布</text>
 		</navigator>
 	</view>
 	<view class="cu-item arrow">
-		<navigator url="/pages/myCollect/myCollect" class="content"  hover-class="none">
+		<navigator url="/pages/myCollect/myCollect" class="content" hover-class="none">
 			<text class="cuIcon-cartfill text-green"></text>
 			<text class="text-grey">我的收藏</text>
 		</navigator>
@@ -32,4 +47,3 @@
 	</view>
 
 </view>
-

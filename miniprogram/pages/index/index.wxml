@@ -1,20 +1,20 @@
 <swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
 
-	<swiper-item>
-		<image src="cloud://production-de8yc.7072-production-de8yc-1302032334/homeSwiper/9beb491408fbe60707fca74f8900553.jpg" mode='aspectFill'></image>
+	<swiper-item bindtap="showQrcode" data-url="{{item._url}}" wx:for="{{swiperList}}" wx:key="index">
+		<image src="{{item._url}}" data-url="{{item._url}}" mode='aspectFill'></image>
 	</swiper-item>
-	<swiper-item>
+<!-- 	<swiper-item>
 		<image src="cloud://production-de8yc.7072-production-de8yc-1302032334/homeSwiper/d55bd478bd0e557ef6bdbb1670d70c9.jpg" mode='aspectFill'></image>
 	</swiper-item>
 	<swiper-item>
 		<image src="cloud://production-de8yc.7072-production-de8yc-1302032334/homeSwiper/2d24d10024f7cbb1de1cf3369228383.jpg" mode='aspectFill'></image>
-	</swiper-item>
+	</swiper-item> -->
 </swiper>
 
 <view class="cu-bar bg-white search " bindtap="goSearchInfo">
 	<view class="search-form round">
-		<text class="cuIcon-search"></text>
-		<view style="color:#333;font-size:12px;text-align:center">搜索</view>
+		<text class="cuIcon-search"></text>搜索
+
 		<!-- <input type="text" placeholder="搜索" confirm-type="next"></input> -->
 	</view>
 

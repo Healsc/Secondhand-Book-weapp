@@ -11,7 +11,7 @@
 			<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 				<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 			</view>
-			<navigator url="/pages/releaseDetail/releaseDetail?id={{item._id}}" hover-class="none" class="content">
+			<navigator url="/pages/myReleaseDetail/myReleaseDetail?id={{item._id}}" hover-class="none" class="content">
 				<view class="text-pink">
 					<text class="text-cut">{{item._bookName}}</text>
 				</view>

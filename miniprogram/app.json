@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/deal/deal",
-    "pages/release/release",
+   
+   
     "pages/sellBook/sellBook",
     "pages/myRelease/myRelease",
     "pages/myReleaseDetail/myReleaseDetail",
@@ -10,7 +10,6 @@
     "pages/search/search",
     "pages/test/test",
     "pages/myCollect/myCollect",
-
 
     "pages/profile/profile"
 
@@ -31,7 +30,7 @@
       },
       {
         "pagePath": "pages/sellBook/sellBook",
-        "text": "发布",
+        "text": "卖书",
         "iconPath": "../miniprogram/images/icon/fabu.png",
         "selectedIconPath": "../miniprogram/images/icon/fabu-sel.png"
       },

@@ -62,15 +62,24 @@ Page({
         dianxinList: [],
         wenliList: [],
         qitaList: [],
-        searchInfo: ''
+        searchInfo: '',
+        swiperList: []
     },
-
-    goSearchInfo(){
+    getSwiperList() {
+        const db = wx.cloud.database();
+        db.collection('homeSwiper').get().then(res => {
+            this.setData({
+                swiperList: res.data
+            })
+        })
+    },
+    goSearchInfo() {
         wx.navigateTo({
-          url: '/pages/search/search',
+            url: '/pages/search/search',
         })
     },
     onLoad() {
+        this.getSwiperList();
         setTimeout(() => {
             wx.stopPullDownRefresh({
                 complete: (res) => {},

@@ -27,9 +27,22 @@ Page({
             '其他'
         ],
         index: null,
-        category: ""
+        category: "",
+        isShowPage: false
     },
-
+    onLoad: function (options) {
+        this.getIsShowPage();
+    },
+    getIsShowPage() {
+        console.log('1')
+        const db = wx.cloud.database();
+        db.collection('showPage').doc('fabuPage').get().then(res => {
+            this.setData({
+                isShowPage: res.data._isShow
+            })
+            console.log(res)
+        })
+    },
     PickerChange(e) {
         this.setData({
             index: e.detail.value,
@@ -178,9 +191,6 @@ Page({
         })
     },
 
-    onLoad: function (options) {
-
-    },
     //获取系统时间
     getDate() {
         var date = new Date();
