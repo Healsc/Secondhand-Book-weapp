@@ -25,21 +25,7 @@ Page({
         this.setData({
             id: options.id
         })
-        /*  db.collection('sellBook').doc(options.id).get().then(res => {
-             wx.hideLoading({
-                 complete: (res) => {},
-             })
-             console.log(res.data._openid == this.data.openid)
-             console.log(this.data.openid)
-             if (res.data._openid == this.data.openid) {
-                 this.setData({
-                     isMycollect: true
-                 })
-             }
-             this.setData({
-                 detail: res.data
-             })
-         }) */
+
     },
     getOpenid() {
         wx.cloud.callFunction({
@@ -66,6 +52,9 @@ Page({
         db.collection('sellBook').doc(this.data.id).get().then(res => {
 
             wx.hideLoading({
+                complete: (res) => {},
+            })
+            wx.stopPullDownRefresh({
                 complete: (res) => {},
             })
             console.log(res.data._openid == this.data.openid)
@@ -124,7 +113,9 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+        let that = this;
+        that.getDetail();
+        that.getCollect();
     },
 
     /**

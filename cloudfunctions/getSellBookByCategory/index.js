@@ -7,7 +7,7 @@ const db = cloud.database();
 exports.main = async (event, context) => {
     const wxContext = cloud.getWXContext()
    
-    return await db.collection('sellBook').where({
+    return await db.collection('sellBook').orderBy('_createTime','desc').where({
         _category:event.category
     }).get()
 }

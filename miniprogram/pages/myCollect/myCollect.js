@@ -10,19 +10,25 @@ Page({
         collectList: []
     },
     getOpneid() {
+        wx.showLoading({
+            title: '加载中',
+        })
         wx.cloud.callFunction({
             name: 'login'
         }).then(res => {
             this.setData({
                 openid: res.result.openid
             })
-            console.log(res.result.openid)
+
             wx.cloud.callFunction({
                 name: 'getMyCollect',
                 data: {
                     openid: res.result.openid
                 }
             }).then(res => {
+                wx.hideLoading({
+                    complete: (res) => {},
+                })
                 this.setData({
                     collectList: res.result
                 })
@@ -38,21 +44,29 @@ Page({
         })
     },
 
-    /*  getMyCollect() {
-         wx.cloud.callFunction({
-             name: 'getMyCollect',
-             data: {
-                 openid: this.data.openid
-             }
-         }).then(res => {
-             this.setData({
-                 collectList: res.result.data
-             })
-         })
-     }, */
-    /**
-     * 生命周期函数--监听页面加载
-     */
+    getList() {
+        wx.showLoading({
+            title: '加载中',
+        })
+        wx.cloud.callFunction({
+            name: 'getMyCollect',
+            data: {
+                openid: this.data.openid
+            }
+        }).then(res => {
+            wx.stopPullDownRefresh({
+                complete: (res) => {},
+            })
+            wx.hideLoading({
+                complete: (res) => {},
+            })
+            this.setData({
+                collectList: res.result
+            })
+
+        })
+    },
+
     onLoad: function (options) {
         this.getOpneid();
     },
@@ -89,7 +103,7 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+        this.getList();
     },
 
     /**

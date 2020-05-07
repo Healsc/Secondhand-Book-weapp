@@ -2,58 +2,34 @@
 <view class="cu-list menu   margin-bottom-xl shadow-lg radius" style='margin-top:1rpx'>
 	<view class="cu-item arrow">
 		<button class="cu-btn content" open-type="contact" hover-class="none">
-			<text class="cuIcon-servicefill text-cyan"></text>
+			<text class="cuIcon-servicefill text-orange"></text>
 			<text class="text-grey">在线客服</text>
 		</button>
 	</view>
 	<view class="cu-item arrow">
 		<button class="cu-btn content" open-type="feedback" hover-class="none">
-			<text class="cuIcon-writefill text-green"></text>
+			<text class="cuIcon-writefill text-cyan"></text>
 			<text class="text-grey">意见反馈</text>
 		</button>
 	</view>
 	<view class="cu-item arrow">
 		<navigator url="/pages/myRelease/myRelease" class="content"  hover-class="none">
-			<text class="cuIcon-creativefill text-orange"></text>
+			<text class="cuIcon-roundaddfill text-pink"></text>
 			<text class="text-grey">我的发布</text>
 		</navigator>
 	</view>
 	<view class="cu-item arrow">
 		<navigator url="/pages/myCollect/myCollect" class="content"  hover-class="none">
-			<text class="cuIcon-light text-orange"></text>
+			<text class="cuIcon-cartfill text-green"></text>
 			<text class="text-grey">我的收藏</text>
 		</navigator>
 	</view>
 	<view class="cu-item arrow">
 		<button class="cu-btn content" open-type="share" hover-class="none">
-			<text class="cuIcon-share text-green"></text>
+			<text class="cuIcon-forwardfill text-red"></text>
 			<text class="text-grey">分享小程序</text>
 		</button>
 	</view>
 
 </view>
 
-<!-- 
-<scroll-view scroll-x class="bg-white nav">
-  <view class="flex text-center">
-    <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{navList}}" wx:key="index" data-iid="{{item.id}}" bindtap="tabSelect" data-id="{{index}}">
-      {{item.name}}
-    </view>
-  </view>
-</scroll-view>
-
-<view>
-  <block wx:for="{{selBookList}}" wx:key="index">
-    <view>a
-    {{item._bookName}}
-    </view>
-    <view>
-    {{item._author}}
-    </view>
-    <view>
-      {{item._press}}
-    </view>
-  
-  </block>
-
-</view> -->

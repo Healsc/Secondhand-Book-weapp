@@ -31,6 +31,9 @@ Page({
         })
     },
     isSellto0() {
+        wx.showLoading({
+            title: '更新中',
+        })
         wx.cloud.callFunction({
             name: 'updataIsSell',
             data: {
@@ -38,11 +41,33 @@ Page({
                 isSell: 0
             }
         }).then(res => {
-            console.log(res)
+            wx.hideLoading({
+                complete: (res) => {},
+            })
+            this.getDetail();
+        })
+    },
+    isSellto1() {
+        wx.showLoading({
+            title: '更新中',
+        })
+        wx.cloud.callFunction({
+            name: 'updataIsSell',
+            data: {
+                id: this.data.id,
+                isSell: 1
+            }
+        }).then(res => {
+            wx.hideLoading({
+                complete: (res) => {},
+            })
             this.getDetail();
         })
     },
     isSellto2() {
+        wx.showLoading({
+            title: '更新中',
+        })
         wx.cloud.callFunction({
             name: 'updataIsSell',
             data: {
@@ -50,7 +75,9 @@ Page({
                 isSell: 2
             }
         }).then(res => {
-            console.log(res)
+            wx.hideLoading({
+                complete: (res) => {},
+            })
             this.getDetail();
         })
     },
@@ -58,7 +85,7 @@ Page({
         console.log(e.target.dataset.url)
         wx.previewImage({
             urls: [e.target.dataset.url],
-            current: e.target.dataset.url 
+            current: e.target.dataset.url
         })
     },
     getDetail() {
@@ -69,52 +96,20 @@ Page({
             wx.hideLoading({
                 complete: (res) => {},
             })
+            wx.stopPullDownRefresh({
+              complete: (res) => {},
+            })
             this.setData({
                 detail: res.data
             })
         })
     },
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
+    
     onPullDownRefresh: function () {
-
+        this.getDetail();
     },
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
+  
 
     /**
      * 用户点击右上角分享

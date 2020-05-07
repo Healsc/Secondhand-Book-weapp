@@ -1,32 +1,30 @@
-<view>
-	<view   class="sell-book" wx:for="{{collectList}}" wx:key="index">
-		<view bindtap="showQrcode" data-url="{{item._fileIds[0]}}" class="sell-book-img">
-			<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">我的收藏</view>
+</cu-custom>
+
+
+<view class="padding-top padding-bottom padding-lr" wx:if="{{collectList.length}}">
+
+	<view class="cu-list menu-avatar">
+		<view style="border-bottom:1px solid #ddd" class="cu-item " wx:for="{{collectList}}" wx:key="index" wx:if="{{item._isSell}}">
+			<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
+				<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
+			</view>
+			<navigator url="/pages/releaseDetail/releaseDetail?id={{item._id}}" hover-class="none" class="content">
+				<view class="text-pink">
+					<text class="text-cut">{{item._bookName}}</text>
+				</view>
+				<view class="text-gray text-sm flex">
+					<text class="text-cut">{{item._press}}/{{item._author}}</text>
+				</view>
+			</navigator>
+			<view class="action">
+				<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+				<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+				<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
+				<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
+			</view>
 		</view>
-		<navigator hover-class="none" url="/pages/releaseDetail/releaseDetail?id={{item._bookId}}" class="sell-book-content ">
-			<view class="jieudan">
-				书名：{{item._bookName}}
-			</view>
-			<view class="jieudan">
-				作者/主编：{{item._author}}
-			</view>
-			<view class="sell-book-content-price">
-				￥{{item._price}}
-			</view>
-			<view class=" text-grey" wx:if="{{item._isSell == 0}}">
-				状态：下架
-			</view>
-			<view class=" text-green" wx:if="{{item._isSell == 1}}">
-				状态：出售中
-			</view>
-			<view class="text-blue" wx:if="{{item._isSell == 2}}">
-				状态：已出售
-			</view>
-			<view>
-				{{item._time}}
-			</view>
-		</navigator>
 	</view>
-
 </view>
-

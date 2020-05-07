@@ -61,7 +61,14 @@ Page({
         yishuList: [],
         dianxinList: [],
         wenliList: [],
-        qitaList: []
+        qitaList: [],
+        searchInfo: ''
+    },
+
+    goSearchInfo(){
+        wx.navigateTo({
+          url: '/pages/search/search',
+        })
     },
     onLoad() {
         setTimeout(() => {
@@ -69,7 +76,7 @@ Page({
                 complete: (res) => {},
             })
             wx.hideLoading({
-              complete: (res) => {},
+                complete: (res) => {},
             })
         }, 1500)
         wx.showLoading({

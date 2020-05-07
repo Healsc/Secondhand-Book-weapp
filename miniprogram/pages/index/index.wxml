@@ -1,18 +1,24 @@
-<view class='cu-custom'>
-	<view class="cu-bar fixed bg-shadeTop" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-		<navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
-			<text class='cuIcon-back'></text> 返回
-		</navigator>
-		<view class='content' style='top:{{StatusBar}}px;'>Tab索引</view>
-	</view>
-</view>
-
 <swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-	<swiper-item wx:for="{{4}}" wx:key="index">
-		<image src="https://image.weilanwl.com/img/4x3-{{index+1}}.jpg" mode='aspectFill'></image>
+
+	<swiper-item>
+		<image src="cloud://production-de8yc.7072-production-de8yc-1302032334/homeSwiper/9beb491408fbe60707fca74f8900553.jpg" mode='aspectFill'></image>
+	</swiper-item>
+	<swiper-item>
+		<image src="cloud://production-de8yc.7072-production-de8yc-1302032334/homeSwiper/d55bd478bd0e557ef6bdbb1670d70c9.jpg" mode='aspectFill'></image>
+	</swiper-item>
+	<swiper-item>
+		<image src="cloud://production-de8yc.7072-production-de8yc-1302032334/homeSwiper/2d24d10024f7cbb1de1cf3369228383.jpg" mode='aspectFill'></image>
 	</swiper-item>
 </swiper>
 
+<view class="cu-bar bg-white search " bindtap="goSearchInfo">
+	<view class="search-form round">
+		<text class="cuIcon-search"></text>
+		<view style="color:#333;font-size:12px;text-align:center">搜索</view>
+		<!-- <input type="text" placeholder="搜索" confirm-type="next"></input> -->
+	</view>
+
+</view>
 
 
 <view class="VerticalBox">
@@ -26,13 +32,13 @@
 
 	<scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 375rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
 
-		<view class="padding-top padding-lr" id="main-0">
+		<view class="padding-top  padding-lr" id="main-0">
 			<view class='cu-bar solid-bottom bg-white'>
 				<view class='action'>
 					<text class='cuIcon-title text-green'></text>通用</view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{tongyongList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{tongyongList}}" wx:key="index" wx:if="{{item._isSell}}">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -45,7 +51,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>
@@ -61,7 +69,7 @@
 					<text class='cuIcon-title text-green'></text> 农学 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{nongxueList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{nongxueList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -74,7 +82,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>
@@ -87,7 +97,7 @@
 					<text class='cuIcon-title text-green'></text> 园艺 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{yuanyiList}}" wx:key="index">
+				<view class="cu-item " vstyle="border-bottom:1px solid #ddd" wx:for="{{yuanyiList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -100,7 +110,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>
@@ -116,7 +128,7 @@
 					<text class='cuIcon-title text-green'></text> 资环 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{zihuanList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{zihuanList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -129,7 +141,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>
@@ -146,7 +160,7 @@
 					<text class='cuIcon-title text-green'></text> 动科 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{dongkeList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{dongkeList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -159,7 +173,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>
@@ -172,7 +188,7 @@
 					<text class='cuIcon-title text-green'></text> 动医 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{dongyiList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{dongyiList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -185,7 +201,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>
@@ -199,7 +217,7 @@
 					<text class='cuIcon-title text-green'></text> 工程 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{gongchengList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{gongchengList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -212,7 +230,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>
@@ -227,7 +247,7 @@
 					<text class='cuIcon-title text-green'></text> 经管 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{jingguanList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{jingguanList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -240,7 +260,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>
@@ -254,7 +276,7 @@
 					<text class='cuIcon-title text-green'></text> 生命 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{shengmingList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{shengmingList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -267,7 +289,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>
@@ -281,7 +305,7 @@
 					<text class='cuIcon-title text-green'></text> 食品 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{shipinList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{shipinList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -294,7 +318,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>
@@ -308,7 +334,7 @@
 					<text class='cuIcon-title text-green'></text> 管法 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{guanfaList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{guanfaList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -321,7 +347,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>
@@ -336,7 +364,7 @@
 					<text class='cuIcon-title text-green'></text> 水利 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{shuiliList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{shuiliList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -349,7 +377,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>
@@ -363,7 +393,7 @@
 					<text class='cuIcon-title text-green'></text> 国际 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{guojiList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{guojiList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -376,7 +406,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>
@@ -391,7 +423,7 @@
 					<text class='cuIcon-title text-green'></text> 艺术 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{yishuList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{yishuList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -418,7 +450,7 @@
 					<text class='cuIcon-title text-green'></text> 电信 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{dianxinList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{dianxinList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -431,7 +463,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>
@@ -444,7 +478,7 @@
 					<text class='cuIcon-title text-green'></text> 文理 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{wenliList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{wenliList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -457,7 +491,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>
@@ -465,13 +501,13 @@
 		</view>
 
 
-		<view class="padding-top padding-lr" id="main-16">
+		<view class="padding-top padding-bottom padding-lr" id="main-16">
 			<view class='cu-bar solid-bottom bg-white'>
 				<view class='action'>
 					<text class='cuIcon-title text-green'></text> 其他 </view>
 			</view>
 			<view class="cu-list menu-avatar">
-				<view class="cu-item " wx:for="{{qitaList}}" wx:key="index">
+				<view class="cu-item " style="border-bottom:1px solid #ddd" wx:for="{{qitaList}}" wx:key="index">
 					<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 						<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 					</view>
@@ -484,7 +520,9 @@
 						</view>
 					</navigator>
 					<view class="action">
-						<view class="text-grey text-xs"></view>
+						<view wx:if="{{item._isSell == 0}}" class="text-grey text-xs">已下架</view>
+						<view wx:if="{{item._isSell == 1}}" class="text-green text-xs">出售中</view>
+						<view wx:if="{{item._isSell == 2}}" class="text-blue text-xs">已出售</view>
 						<view class="cu-tag round bg-red sm">￥{{item._price}}</view>
 					</view>
 				</view>

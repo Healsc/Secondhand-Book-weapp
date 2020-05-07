@@ -131,6 +131,14 @@
 					"id": -1,
 					"name": "测试",
 					"pathName": "pages/test/test",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 12,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": "",
 					"scene": null
 				}
 			]

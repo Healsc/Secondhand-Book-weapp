@@ -1,3 +1,8 @@
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">发布详情</view>
+</cu-custom>
+
 <view>
 
 	<view class="cu-form-group margin-top">
@@ -16,6 +21,14 @@
 		<view class="title guding">价格</view>
 		<text class='text-center pad-left-cont'>{{detail._price}}</text>
 	</view>
+	<view class="cu-form-group ">
+		<view class="title guding">联系人</view>
+		<text class='text-center pad-left-cont'>{{detail._postName}}</text>
+	</view>
+	<view class="cu-form-group">
+		<view class="title guding">联系方式</view>
+		<text class='text-center pad-left-cont'>{{detail._tel}}</text>
+	</view>
 	<view wx:if="{{detail._notes!=''}}" class="cu-form-group ">
 		<view class="title guding">备注</view>
 		<text class='text-center pad-left-cont'>备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注{{detail._notes}}</text>
@@ -29,20 +42,30 @@
 	</view>
 	<view class="cu-form-group ">
 		<view class="title guding">当前状态</view>
-		<text wx:if="{{detail._isSell == 0}}" class='text-center text-grey pad-left-cont'>下架</text>
+		<text wx:if="{{detail._isSell == 0}}" class='text-center text-grey pad-left-cont'>已下架</text>
 		<text wx:if="{{detail._isSell == 1}}" class='text-center text-green pad-left-cont'>出售中</text>
 		<text wx:if="{{detail._isSell == 2}}" class='text-center text-blue pad-left-cont'>已出售</text>
 	</view>
 </view>
-<view class="img" >
+<view class="img">
 	<view class="img-item" wx:for="{{detail._fileIds}}" wx:key="index" bindtap="showQrcode" data-url="{{item}}">
 		<image src="{{item}}" data-url="{{item}}"></image>
 	</view>
 </view>
-
+<view wx:if="{{detail._isSell == 0}}">
+	<view class="padding flex flex-direction">
+		<button bindtap="isSellto1" class="cu-btn bg-red lg">上架</button>
+	</view>
+</view>
 <view wx:if="{{detail._isSell == 1}}">
 	<view class="padding flex flex-direction">
 		<button bindtap="isSellto0" class="cu-btn bg-red lg">下架</button>
 		<button bindtap="isSellto2" class="cu-btn bg-orange margin-tb-sm lg">已出售</button>
+	</view>
+</view>
+
+<view wx:if="{{detail._isSell == 2}}">
+	<view class="padding flex flex-direction">
+		<button bindtap="isSellto1" class="cu-btn bg-orange margin-tb-sm lg">未出售</button>
 	</view>
 </view>

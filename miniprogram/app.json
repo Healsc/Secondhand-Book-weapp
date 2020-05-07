@@ -7,7 +7,7 @@
     "pages/myRelease/myRelease",
     "pages/myReleaseDetail/myReleaseDetail",
     "pages/releaseDetail/releaseDetail",
-
+    "pages/search/search",
     "pages/test/test",
     "pages/myCollect/myCollect",
 
@@ -43,6 +43,6 @@
       }
     ]
   },
- 
+
   "sitemapLocation": "sitemap.json"
 }

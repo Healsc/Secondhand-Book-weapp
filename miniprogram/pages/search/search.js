@@ -1,64 +1,61 @@
-// pages/myRelease/myRelease.js
+// pages/search/search.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        selBookList: [],
-        openid: ""
+        searchInfo: '',
+        searchList: [],
+        showToast: false
     },
-    getOpenid() {
-        wx.showLoading({
-            title: '加载中',
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+
+    },
+    getSearchInfo(e) {
+        this.setData({
+            searchInfo: e.detail.value
         })
+    },
+    searchInfo() {
+        wx.showLoading({
+            title: '搜索中',
+        })
+        console.log(this.data.searchInfo)
         wx.cloud.callFunction({
-            name: 'login'
+            name: 'searchSellBook',
+            data: {
+                bookName: this.data.searchInfo
+            }
         }).then(res => {
             wx.hideLoading({
                 complete: (res) => {},
-            })
-            this.setData({
-                openid: res.result.openid
-            })
-            this.getSellBookById();
-        })
-    },
-    getSellBookById() {
-        wx.showLoading({
-            title: '加载中',
-        })
-        wx.cloud.callFunction({
-            name: 'getSellBookById',
-            data: {
-                openid: this.data.openid
-            }
-        }).then(res => {
-            this.setData({
-                selBookList: res.result.data
             })
             wx.stopPullDownRefresh({
                 complete: (res) => {},
             })
-            wx.hideLoading({
-                complete: (res) => {},
-            })
+            if (res.result.data.length) {
+                this.setData({
+                    searchList: res.result.data
+                })
+            } else {
+                this.setData({
+                    showToast: true
+                })
+
+            }
         })
     },
     showQrcode(e) {
-
         wx.previewImage({
             urls: [e.target.dataset.url],
             current: e.target.dataset.url
         })
     },
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-        this.getOpenid();
-    },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -91,7 +88,7 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-        this.getSellBookById();
+
     },
 
     /**

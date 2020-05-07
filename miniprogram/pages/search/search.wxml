@@ -1,13 +1,25 @@
-<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
 	<view slot="backText">返回</view>
-	<view slot="content">我的发布</view>
+	<view slot="content">搜索书籍</view>
 </cu-custom>
 
+<view class="cu-bar bg-white search ">
+	<view class="search-form round">
+		<text class="cuIcon-search"></text>
+		<input type="text" placeholder="输入关键词:书名/出版社/作者" bindinput="getSearchInfo" confirm-type="next"></input>
+	</view>
+	<view class="action">
+		<button class="cu-btn bg-gradual-green shadow-blur round" bindtap="searchInfo">搜索</button>
+	</view>
+</view>
 
-<view class="padding-top padding-bottom padding-lr" wx:if="{{selBookList.length}}">
-
+<view class="padding-top padding-bottom padding-lr" wx:if="{{searchList.length}}">
+	<view class='cu-bar solid-bottom bg-white'>
+		<view class='action'>
+			<text class='cuIcon-title text-green'></text>搜索结果</view>
+	</view>
 	<view class="cu-list menu-avatar">
-		<view style="border-bottom:1px solid #ddd" class="cu-item " wx:for="{{selBookList}}" wx:key="index" wx:if="{{item._isSell}}">
+		<view class="cu-item "  style="border-bottom:1px solid #ddd" wx:for="{{searchList}}" wx:key="index" wx:if="{{item._isSell}}">
 			<view class="cu-avatar radius lg" bindtap="showQrcode" data-url="{{item.fileIds[0]}}">
 				<image data-url="{{item._fileIds[0]}}" src="{{item._fileIds[0]}}"></image>
 			</view>
@@ -27,4 +39,7 @@
 			</view>
 		</view>
 	</view>
+</view>
+<view wx:if="{{showToast}}" style="text-align:center;margin-top:40rpx">
+	抱歉，未找到相关书籍!
 </view>
