@@ -34,13 +34,15 @@ Page({
         this.getIsShowPage();
     },
     getIsShowPage() {
-        console.log('1')
+
         const db = wx.cloud.database();
         db.collection('showPage').doc('fabuPage').get().then(res => {
             this.setData({
                 isShowPage: res.data._isShow
             })
-            console.log(res)
+            wx.stopPullDownRefresh({
+                complete: (res) => {},
+            })
         })
     },
     PickerChange(e) {
@@ -85,7 +87,7 @@ Page({
                                 // 上传图片
                                 wx.cloud.uploadFile({
 
-                                    cloudPath: 'sellBook/' + e.detail.value.postName + " " + e.detail.value.bookName + Math.floor(Math.random() * 100) + suffix, // 上传至云端的路径
+                                    cloudPath: 'sellBook/' + e.detail.value.postName + "的" + e.detail.value.bookName + Math.floor(Math.random() * 100000) + suffix, // 上传至云端的路径
                                     filePath: item, // 小程序临时文件路径
                                     success: res => {
                                         // 返回文件 ID
@@ -104,6 +106,8 @@ Page({
 
                         }
 
+
+
                         // 插入到云数据库
                         Promise.all(promiseArr).then(res => {
                             const db = wx.cloud.database({
@@ -111,7 +115,7 @@ Page({
                             })
                             db.collection('sellBook').add({
                                 data: {
-                                    _id: e.detail.value.postName + "的" + e.detail.value.bookName + Math.floor(Math.random() * 1000000),
+                                    _id: e.detail.value.postName +'的'+ e.detail.value.bookName + Math.floor(Math.random() * 100000),
                                     _fileIds: that.data.fileIds,
                                     _bookName: e.detail.value.bookName,
                                     _press: e.detail.value.press,
@@ -138,8 +142,8 @@ Page({
                                     index: null,
                                     bookInfo: '',
                                     forminfo: '',
-                                    imgList: '',
-                                    fileIds: ''
+                                    imgList: [],
+                                    fileIds: []
                                 })
                             }).catch(err => {
                                 wx.showToast({
@@ -208,5 +212,17 @@ Page({
         var s = date.getSeconds();
         return Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s;
         //console.log("当前时间：" + Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s);
-    }
+    },
+    onPullDownRefresh: function () {
+        let that = this;
+        that.setData({
+            index: null,
+            bookInfo: '',
+            forminfo: '',
+            imgList: [],
+            fileIds: '',
+            isShowPage: false
+        })
+        that.getIsShowPage();
+    },
 })
