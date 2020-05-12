@@ -25,7 +25,7 @@ Page({
         wx.showLoading({
             title: '搜索中',
         })
-        console.log(this.data.searchInfo)
+     
         wx.cloud.callFunction({
             name: 'searchSellBook',
             data: {
@@ -40,10 +40,12 @@ Page({
             })
             if (res.result.data.length) {
                 this.setData({
-                    searchList: res.result.data
+                    searchList: res.result.data,
+                    showToast:false
                 })
             } else {
                 this.setData({
+                    searchList: [],
                     showToast: true
                 })
 

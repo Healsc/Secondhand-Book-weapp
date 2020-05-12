@@ -31,7 +31,7 @@
 	</view>
 	<view wx:if="{{detail._notes!=''}}" class="cu-form-group ">
 		<view class="title guding">备注</view>
-		<text class='text-center pad-left-cont'>备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注备注{{detail._notes}}</text>
+		<text class='text-center pad-left-cont'>{{detail._notes}}</text>
 	</view>
 
 
